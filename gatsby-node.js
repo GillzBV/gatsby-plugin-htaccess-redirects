@@ -31,7 +31,8 @@ exports.onPostBuild = ({ store }, pluginOptions) => {
     // This is the default pattern
     pattern = defaultPattern,
     prefix,
-    suffix
+    suffix,
+    custom = ''
   } = pluginOptions;
   const { redirects, program } = store.getState();
 
@@ -56,7 +57,7 @@ exports.onPostBuild = ({ store }, pluginOptions) => {
   // line separated by a "\n".
   const htaccessContent = `${prefix ? prefix + "\n" : ""}${fp
     .map(redirectToHtaccessString, redirects)
-    .join("\n")}${suffix ? "\n" + suffix : ""}`;
+    .join("\n")}${custom ? "\n" + custom : ''}${suffix ? "\n" + suffix : ""}`;
 
   // Return a promise chain
   return (
