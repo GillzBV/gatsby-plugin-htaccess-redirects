@@ -20,7 +20,7 @@ const redirectToHtaccessStringFactory = pattern => ({
     // Ensure neither leading nor trailing slash
     .replace("%1", trimSlashes(fromPath))
     // Ensure both leading and trailin slashes
-    .replace("%2", `/${trimSlashes(toPath)}/`)
+    .replace("%2", `/${trimSlashes(toPath)}`)
     .replace("%3", isPermanent ? "301" : "302");
 // `Redirect ${
 //   isPermanent ? "301" : "302"
